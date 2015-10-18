@@ -61,6 +61,7 @@ const Cropper = React.createClass({
         options[prop] = this.props[prop];
       }
     }
+    options['preview'] = $(React.findDOMNode(this.refs.preview))
     this.$img = $(React.findDOMNode(this.refs.img));
     this.$img.cropper(options);
   },
@@ -169,6 +170,7 @@ const Cropper = React.createClass({
           alt={this.props.alt === undefined ? 'picture' : this.props.alt}
           style={{opacity: 0}}
           />
+        <div ref='preview' classname='preview'></div>
       </div>
     );
   }
